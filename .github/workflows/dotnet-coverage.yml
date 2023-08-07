@@ -18,24 +18,27 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
 
-      - name: Setup working dir
-        run: cd ./appserver
-
       - uses: actions/cache@v3
         with:
-          path: ~/.nuget/packages
+          path: ./appserver/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget
       
       - name: Install dependencies
         run: dotnet restore
+        with:
+          path: ./appserver/
 
       - name: Display dotnet version
         run: dotnet --version
+        with:
+          path: ./appserver/
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true      
+        run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
+        with:
+          path: ./appserver/
 
       - name: Test
         run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
