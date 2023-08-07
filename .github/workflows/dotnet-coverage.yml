@@ -45,7 +45,7 @@ jobs:
         working-directory: ${{ env.DIR }}
         run: dotnet test --logger trx --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
 
-      - name: Code Ñoverage
+      - name: Code Coverage
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
