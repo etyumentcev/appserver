@@ -26,21 +26,18 @@ jobs:
             ${{ runner.os }}-nuget
       
       - name: Install dependencies
-        with:
-          path: ./appserver/
-          run: dotnet restore
+        working-directory: ./appserver
+        run: dotnet restore
 
       - name: Display dotnet version
+        working-directory: ./appserver
         run: dotnet --version
-        with:
-          path: ./appserver/
-
+        
       - name: Build
+        working-directory: ./appserver
         run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
-        with:
-          path: ./appserver/
-
+        
       - name: Test
+        working-directory: ./appserver
         run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
-        with:
-          path: ./appserver/
+        
