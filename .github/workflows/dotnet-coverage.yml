@@ -42,3 +42,5 @@ jobs:
 
       - name: Test
         run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
+        with:
+          path: ./appserver/
