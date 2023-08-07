@@ -27,5 +27,16 @@ namespace AppServer
             );
         }
 
+        [Test]
+        public void IocShouldThrowInvalidCastExceptionIfDependencyResolvesAnotherType()
+        {
+            Assert.Throws<InvalidCastException>(
+              () => Ioc.Resolve<string>(
+                "Update Ioc Resolve Dependency Strategy",
+                (Func<string, object[], object> args) => args
+              )
+            );
+        }
+
     }
 }
