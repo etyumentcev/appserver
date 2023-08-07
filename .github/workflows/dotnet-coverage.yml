@@ -4,7 +4,7 @@ on:
  pull_request:
    branches: ["main"]
 
-app:
+env:
     DIR: ./appserver
 
 jobs:
@@ -24,24 +24,24 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: ${{ app.DIR }} /.nuget/packages
+          path: ${{ env.DIR }} /.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget
       
       - name: Install dependencies
-        working-directory: ${{ app.DIR }}
+        working-directory: ${{ env.DIR }}
         run: dotnet restore
 
       - name: Display dotnet version
-        working-directory: ${{ app.DIR }}
+        working-directory: ${{ env.DIR }}
         run: dotnet --version
         
       - name: Build
-        working-directory: ${{ app.DIR }}
+        working-directory: ${{ env.DIR }}
         run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
         
       - name: Test
-        working-directory: ${{ app.DIR }}
+        working-directory: ${{ env.DIR }}
         run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
         
