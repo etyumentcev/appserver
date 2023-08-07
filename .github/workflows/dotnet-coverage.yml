@@ -26,9 +26,9 @@ jobs:
             ${{ runner.os }}-nuget
       
       - name: Install dependencies
-        run: dotnet restore
         with:
           path: ./appserver/
+          run: dotnet restore
 
       - name: Display dotnet version
         run: dotnet --version
