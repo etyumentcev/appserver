@@ -1,0 +1,53 @@
+name: AppServer building
+
+on:
+ pull_request:
+   branches: ["main"]
+
+env:
+    DIR: ./appserver
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '7.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v3
+  
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ env.DIR }} /.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+      
+      - name: Install dependencies
+        working-directory: ${{ env.DIR }}
+        run: dotnet restore
+
+      - name: Display dotnet version
+        working-directory: ${{ env.DIR }}
+        run: dotnet --version
+        
+      - name: Build
+        working-directory: ${{ env.DIR }}
+        run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
+        
+      - name: Test
+        working-directory: ${{ env.DIR }}
+        run: dotnet test --logger trx --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
+
+      - name: Code Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ${{ env.DIR }}/TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml
+        
