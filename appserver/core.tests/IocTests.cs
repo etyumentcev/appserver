@@ -18,5 +18,14 @@ namespace AppServer
 
             Assert.IsTrue( wasCalled );
         }
+
+        [Test]
+        public void IocShouldThrowArgumentExceptionIfDependencyIsNotFound()
+        {
+            Assert.Throws<ArgumentException>(
+                () => Ioc.Resolve<object>("UnexistingDependency")
+            );
+        }
+
     }
 }

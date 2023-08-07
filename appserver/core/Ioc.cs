@@ -15,7 +15,7 @@ namespace AppServer
                 }
                 else
                 {
-                    return null;
+                    throw new ArgumentException(@"Dependency {dependency} is not found.");
                 }
 
             });
