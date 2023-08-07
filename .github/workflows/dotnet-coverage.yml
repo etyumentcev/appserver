@@ -19,7 +19,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
 
       - name: Setup working dir
-        run: cd ~/appserver
+        run: dir
 
       - uses: actions/cache@v3
         with:
