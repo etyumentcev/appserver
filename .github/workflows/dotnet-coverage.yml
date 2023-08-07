@@ -5,7 +5,7 @@ on:
    branches: ["main"]
 
 env:
-    DIR: .
+    DIR: ./appserver
 
 jobs:
   build:
@@ -43,5 +43,5 @@ jobs:
         
       - name: Test
         working-directory: ${{ env.DIR }}
-        run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
+        run: dotnet test --logger trx --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
         
