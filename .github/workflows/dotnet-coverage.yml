@@ -1,0 +1,47 @@
+name: AppServer building
+
+on:
+ pull_request:
+   branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '7.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+      
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Display dotnet version
+        run: dotnet --version
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true      
+
+      - name: Test
+        run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
+
+          
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v3
+          with:
+            name: dotnet-results-${{ matrix.dotnet-version }}
+            path: TestResults-${{ matrix.dotnet-version }}
+          if: ${{ always() }}
+
