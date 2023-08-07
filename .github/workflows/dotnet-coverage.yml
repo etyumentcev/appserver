@@ -4,8 +4,8 @@ on:
  pull_request:
    branches: ["main"]
 
-env:
-    APPSERVER_DIR: ./appserver
+app:
+    DIR: ./appserver
 
 jobs:
   build:
@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+  
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
@@ -23,24 +24,24 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: $APPSERVER_DIR /.nuget/packages
+          path: ${{ app.DIR }} /.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget
       
       - name: Install dependencies
-        working-directory: $APPSERVER_DIR
+        working-directory: ${{ app.DIR }}
         run: dotnet restore
 
       - name: Display dotnet version
-        working-directory: $APPSERVER_DIR
+        working-directory: ${{ app.DIR }}
         run: dotnet --version
         
       - name: Build
-        working-directory: $APPSERVER_DIR
+        working-directory: ${{ app.DIR }}
         run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
         
       - name: Test
-        working-directory: $APPSERVER_DIR
+        working-directory: ${{ app.DIR }}
         run: dotnet test --logger trx --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml --results-directory "TestResults-${{ matrix.dotnet-version }}"
         
