@@ -2,7 +2,7 @@ namespace AppServer
 {
     public class IocTests
     {
-        [Test]
+        [Fact]
         public void IocShouldUpdateResolveDependencyStrategy()
         {
             bool wasCalled = false;
@@ -16,10 +16,10 @@ namespace AppServer
                 }
             ).Execute();
 
-            Assert.IsTrue( wasCalled );
+            Assert.True( wasCalled );
         }
 
-        [Test]
+        [Fact]
         public void IocShouldThrowArgumentExceptionIfDependencyIsNotFound()
         {
             Assert.Throws<ArgumentException>(
@@ -27,7 +27,7 @@ namespace AppServer
             );
         }
 
-        [Test]
+        [Fact]
         public void IocShouldThrowInvalidCastExceptionIfDependencyResolvesAnotherType()
         {
             Assert.Throws<InvalidCastException>(
