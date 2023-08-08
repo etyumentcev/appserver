@@ -57,7 +57,7 @@ jobs:
         with:
           label: Code Coverage
           color: brightgreen
-          path: ./appserver/covearge-${{ matrix.dotnet-version }}/opencover.xml
+          path: ./appserver/coverage-${{ matrix.dotnet-version }}/opencover.xml
           gist-filename: /coverage-${{ matrix.dotnet-version }}/opencover.xml
           gist-id: 12e789e4ad65907362af2ab12960b2ee
           gist-auth-token: ${{ secrets.SECRET }}       
