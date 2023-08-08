@@ -58,9 +58,9 @@ jobs:
           label: Code Coverage
           color: brightgreen
           path: ./appserver/coverage-${{ matrix.dotnet-version }}/opencover.xml
-          gist-filename: code-coverage
+          gist-filename: code-coverage.json
           gist-id: 12e789e4ad65907362af2ab12960b2ee
-          gist-auth-token: ${{ secrets.SECRET }}       
+          gist-auth-token: ${{ secrets.GIST_SECRET }}       
     
       - name: Print code coverage
         run: echo "Code coverage percentage ${{steps.create_coverage_badge.outputs.percentage}}%"
