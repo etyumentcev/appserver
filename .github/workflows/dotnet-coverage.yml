@@ -43,11 +43,11 @@ jobs:
         
       - name: Test
         working-directory: ${{ env.DIR }}
-        run: dotnet test --configuration Debug --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml
+        run: dotnet test --configuration Debug --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml
 
       - name: Code Coverage
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: /home/runner/work/appserver/appserver/TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml
+          files: ./core.tests/TestResults-${{ matrix.dotnet-version }}/coverage.opencover.xml
         
