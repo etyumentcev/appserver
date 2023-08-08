@@ -2,15 +2,15 @@
 {
     internal class UpdateIocResolveDependencyStrategyCommand : ICommand
     {
-        Func<Func<string, object[], object>, Func<string, object[], object>> _updater;
+        Func<Func<string, object[], object>, Func<string, object[], object>> _updateIoCStrategy;
 
         public UpdateIocResolveDependencyStrategyCommand(
             Func<Func<string, object[], object>, Func<string, object[], object>> updater
-        ) => _updater = updater;
+        ) => _updateIoCStrategy = updater;
 
         public void Execute()
         {
-            Ioc._strategy = _updater(Ioc._strategy);
+            Ioc._strategy = _updateIoCStrategy(Ioc._strategy);
         }
     }
 }
