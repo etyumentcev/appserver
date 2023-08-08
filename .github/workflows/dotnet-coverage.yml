@@ -39,7 +39,7 @@ jobs:
         
       - name: Build
         working-directory: ${{ env.DIR }}
-        run: dotnet build --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
+        run: dotnet build --configuration Debug --no-restore /p:ContinuousIntegrationBuild=true
         
       - name: Test
         working-directory: ${{ env.DIR }}
