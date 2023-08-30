@@ -8,7 +8,7 @@ namespace AppServer
     public class Ioc
     {
         internal static Func<string, object[], object> _strategy =
-            (Func<string, object[], object>)((dependency, args) =>
+            (string dependency, object[]args) =>
             {
                 if ("Update Ioc Resolve Dependency Strategy" == dependency)
                 {
@@ -21,7 +21,7 @@ namespace AppServer
                     throw new ArgumentException(@"Dependency {dependency} is not found.");
                 }
 
-            });
+            };
 
         /// <summary>
         /// Разрешение зависимости.
