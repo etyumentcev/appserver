@@ -14,6 +14,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scopes", "scopes\scopes.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scopes.tests", "scopes.tests\scopes.tests.csproj", "{F9B44F38-D16C-4960-A000-D84215EB5EB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{73269DC0-248E-4CF9-AED9-ABB5B9DC2980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server.tests", "server.tests\server.tests.csproj", "{9F40262D-C220-4780-8F63-46663C9948D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{F9B44F38-D16C-4960-A000-D84215EB5EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B44F38-D16C-4960-A000-D84215EB5EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B44F38-D16C-4960-A000-D84215EB5EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73269DC0-248E-4CF9-AED9-ABB5B9DC2980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73269DC0-248E-4CF9-AED9-ABB5B9DC2980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73269DC0-248E-4CF9-AED9-ABB5B9DC2980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73269DC0-248E-4CF9-AED9-ABB5B9DC2980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F40262D-C220-4780-8F63-46663C9948D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F40262D-C220-4780-8F63-46663C9948D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F40262D-C220-4780-8F63-46663C9948D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F40262D-C220-4780-8F63-46663C9948D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
