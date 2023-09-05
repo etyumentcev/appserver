@@ -43,7 +43,7 @@ jobs:
         
       - name: Test
         working-directory: ${{ env.DIR }}
-        run: dotnet test --configuration Debug --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:MergeWith=../coverage-${{ matrix.dotnet-version }}/opencover.json /p:CoverletOutput=../coverage-${{ matrix.dotnet-version }}/opencover.xml /maxcpucount:1
+        run: dotnet test --configuration Debug --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:MergeWith=../coverage-${{ matrix.dotnet-version }}/opencover.json /p:CoverletOutput=../coverage-${{ matrix.dotnet-version }}/opencover.json /maxcpucount:1
 
       - name: Code Coverage
         uses: codecov/codecov-action@v3
