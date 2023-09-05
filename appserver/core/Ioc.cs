@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AppServer
+﻿namespace AppServer
 {
     /// <summary>
     /// Контейнер инверсии зависимотей (Расширяемая фабрика).
@@ -8,12 +6,12 @@ namespace AppServer
     public class Ioc
     {
         internal static Func<string, object[], object> _strategy =
-            (string dependency, object[]args) =>
+            (string dependency, object[] args) =>
             {
                 if ("Update Ioc Resolve Dependency Strategy" == dependency)
                 {
                     return new AppServer.Impl.UpdateIocResolveDependencyStrategyCommand(
-                      (Func < Func<string, object[], object>, Func<string, object[], object> >) args[0]
+                      (Func<Func<string, object[], object>, Func<string, object[], object>>)args[0]
                     );
                 }
                 else
@@ -45,7 +43,7 @@ namespace AppServer
         /// </returns>
         public static T Resolve<T>(string dependency, params object[] args)
         {
-            return (T) _strategy(dependency, args);
+            return (T)_strategy(dependency, args);
         }
     }
 }

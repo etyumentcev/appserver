@@ -6,7 +6,10 @@
 
         public UpdateIocResolveDependencyStrategyCommand(
             Func<Func<string, object[], object>, Func<string, object[], object>> updater
-        ) => _updateIoCStrategy = updater;
+        )
+        {
+            _updateIoCStrategy = updater;
+        }
 
         public void Execute()
         {

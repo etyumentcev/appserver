@@ -1,5 +1,4 @@
 using Moq;
-using AppServer.Scopes;
 using System.Collections.Concurrent;
 
 namespace AppServer.Commands.Tests
