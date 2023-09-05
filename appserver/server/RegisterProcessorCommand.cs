@@ -8,7 +8,7 @@
             {
                 IDictionary<string, object> context = new Dictionary<string, object>();
                 new InitProcessorContextCommand(context).Execute();
-                new Processor(new Processable(context));
+                context.Add("processor", new Processor(new Processable(context)));
                 return context;
             }).Execute();
         }
