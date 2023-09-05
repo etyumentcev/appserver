@@ -4,7 +4,10 @@
     {
         IDictionary<string, Func<object[], object>> _dependencies;
 
-        public DependencyResolver(object scope) => _dependencies = (IDictionary<string, Func<object[], object>>)scope;
+        public DependencyResolver(object scope)
+        {
+            _dependencies = (IDictionary<string, Func<object[], object>>)scope;
+        }
 
         public object Resolve(string dependency, object[] args)
         {
@@ -19,7 +22,7 @@
                 }
                 else
                 {
-                    dependencies = (IDictionary<string, Func<object[], object>>)(dependencies["IoC.Scope.Parent"](args));
+                    dependencies = (IDictionary<string, Func<object[], object>>)dependencies["IoC.Scope.Parent"](args);
                 }
             }
         }

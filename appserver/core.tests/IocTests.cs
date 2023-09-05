@@ -9,14 +9,14 @@ namespace AppServer
 
             Ioc.Resolve<ICommand>(
                 "Update Ioc Resolve Dependency Strategy",
-                (Func<string, object[], object> args) => 
+                (Func<string, object[], object> args) =>
                 {
                     wasCalled = true;
                     return args;
                 }
             ).Execute();
 
-            Assert.True( wasCalled );
+            Assert.True(wasCalled);
         }
 
         [Fact]

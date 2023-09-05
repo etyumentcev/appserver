@@ -2,8 +2,8 @@ namespace AppServer.Scopes
 {
     public class Tests : IDisposable
     {
-        public Tests() 
-        { 
+        public Tests()
+        {
             new InitCommand().Execute();
             var iocScope = Ioc.Resolve<object>("IoC.Scope.Create");
             Ioc.Resolve<ICommand>("IoC.Scope.Current.Set", iocScope).Execute();
@@ -12,7 +12,7 @@ namespace AppServer.Scopes
         [Fact]
         public void Ioc_Should_Resolve_Registered_Dependency_In_CurrentScope()
         {
-            Ioc.Resolve<ICommand>("IoC.Register", "someDependency", (object[] args) => (object) 1).Execute();
+            Ioc.Resolve<ICommand>("IoC.Register", "someDependency", (object[] args) => (object)1).Execute();
 
             Assert.Equal(1, Ioc.Resolve<int>("someDependency"));
         }
@@ -26,7 +26,7 @@ namespace AppServer.Scopes
         [Fact]
         public void Ioc_Should_Use_Parent_Scope_If_Resolving_Dependency_Is_Not_Defined_In_Current_Scope()
         {
-            Ioc.Resolve<ICommand>("IoC.Register", "someDependency", (object[] args) => (object) 1).Execute();
+            Ioc.Resolve<ICommand>("IoC.Register", "someDependency", (object[] args) => (object)1).Execute();
 
             var parentIoCScope = Ioc.Resolve<object>("IoC.Scope.Current");
 

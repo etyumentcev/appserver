@@ -4,14 +4,14 @@ namespace AppServer.Scopes
 {
     public class InitCommand : ICommand
     {
-        internal static ThreadLocal<object> currentScopes = 
+        internal static ThreadLocal<object> currentScopes =
             new ThreadLocal<object>(true);
 
-        static ConcurrentDictionary<string, Func<object[], object>> rootScope = 
+        static ConcurrentDictionary<string, Func<object[], object>> rootScope =
             new ConcurrentDictionary<string, Func<object[], object>>();
-        
+
         static bool _alreadyExecutesScuccessfully = false;
-        public void Execute() 
+        public void Execute()
         {
             if (_alreadyExecutesScuccessfully)
                 return;
@@ -49,7 +49,7 @@ namespace AppServer.Scopes
                     {
                         var creatingScope = Ioc.Resolve<IDictionary<string, Func<object[], object>>>("IoC.Scope.Create.Empty");
 
-                        if(args.Length > 0)
+                        if (args.Length > 0)
                         {
                             var parentScope = args[0];
                             creatingScope.Add("IoC.Scope.Parent", (object[] args) => parentScope);
