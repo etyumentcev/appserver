@@ -9,6 +9,8 @@ namespace AppServer.Commands.Tests
         public ProcessorTests()
         {
             new Scopes.InitCommand().Execute();
+            var iocScope = Ioc.Resolve<object>("IoC.Scope.Create");
+            Ioc.Resolve<ICommand>("IoC.Scope.Current.Set", iocScope).Execute();
         }
 
         [Fact]
@@ -107,7 +109,6 @@ namespace AppServer.Commands.Tests
             queue.Add(new HardStopCommand(processorContext));
 
             Assert.True(processor.Wait(5000));
-
         }
     }
 }
