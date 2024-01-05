@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "server", "server\server.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "server.tests", "server.tests\server.tests.csproj", "{9F40262D-C220-4780-8F63-46663C9948D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commands", "Commands\commands.csproj", "{CF4DC523-1CD8-4C4A-AD03-C6442F13A7E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commands", "commands\commands.csproj", "{CF4DC523-1CD8-4C4A-AD03-C6442F13A7E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commands.tests", "commands.tests\commands.tests.csproj", "{6D2ED295-41BC-4B1C-A70D-D7199BD11B3B}"
 EndProject
