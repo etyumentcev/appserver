@@ -1,6 +1,6 @@
 ﻿namespace SpaceBattle
 {
-    public interface IMovable
+    public interface IMovingObject
     {
         Vector Location
         {

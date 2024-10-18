@@ -2,14 +2,11 @@
 
 namespace SpaceBattle
 {
-    public class MoveCommand : ICommand
+    public class MoveCommand(IMovingObject movingObject) : ICommand
     {
-        IMovable _movable;
-        public MoveCommand(IMovable movable) => _movable = movable;
-
         public void Execute() 
         {
-            _movable.Location += _movable.Velocity;
+            movingObject.Location += movingObject.Velocity;
         }
     }
 }

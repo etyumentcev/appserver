@@ -6,7 +6,7 @@ namespace Spacebattle.tests.StepDefinitions
     [Binding]
     public class ПрямолинейноеРавномерноеДвижениеБезДеформацииStepDefinitions
     {
-        Mock<IMovable> _obj = new Mock<IMovable>();
+        Mock<IMovingObject> _obj = new Mock<IMovingObject>();
         Exception? _ex = null;
 
         [Given(@"объект находится в точке \((.*), (.*)\)")]
