@@ -76,8 +76,8 @@ namespace Spacebattle.tests.StepDefinitions
             _obj.SetupSet(o => o.Location = It.IsAny<Vector>()).Throws<Exception>().Verifiable();
         }
 
-        [Then(@"операция прерывается выбросом исключения")]
-        public void ThenОперацияПрерываетсяВыбросомИсключения()
+        [Then(@"операция прямолиенейного движения прерывается выбросом исключения")]
+        public void ThenОперацияПрямолинейногоДвиженияПрерываетсяВыбросомИсключения()
         {
             Assert.NotNull(_ex);
         }

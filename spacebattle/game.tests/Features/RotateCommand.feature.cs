@@ -19,7 +19,7 @@ namespace game.tests.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature : object, Xunit.IClassFixture<ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature.FixtureData>, System.IDisposable
+    public partial class ВращениеВокругСобственнойОсиFeature : object, Xunit.IClassFixture<ВращениеВокругСобственнойОсиFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace game.tests.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "MoveCommand.feature"
+#line 1 "RotateCommand.feature"
 #line hidden
         
-        public ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature(ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature.FixtureData fixtureData, game_tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ВращениеВокругСобственнойОсиFeature(ВращениеВокругСобственнойОсиFeature.FixtureData fixtureData, game_tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace game.tests.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("ru-RU"), "Features", "Прямолинейное равномерное движение без деформации", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("ru-RU"), "Features", "Вращение вокруг собственной оси", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,14 +80,14 @@ namespace game.tests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Объект, имеющий мгновенную скорость, перемещается в пространсте")]
-        [Xunit.TraitAttribute("FeatureTitle", "Прямолинейное равномерное движение без деформации")]
-        [Xunit.TraitAttribute("Description", "Объект, имеющий мгновенную скорость, перемещается в пространсте")]
-        public virtual void ОбъектИмеющийМгновеннуюСкоростьПеремещаетсяВПространсте()
+        [Xunit.SkippableFactAttribute(DisplayName="Объект, имеющий мгновенную угловую скорость, вращается вокруг собственной оси")]
+        [Xunit.TraitAttribute("FeatureTitle", "Вращение вокруг собственной оси")]
+        [Xunit.TraitAttribute("Description", "Объект, имеющий мгновенную угловую скорость, вращается вокруг собственной оси")]
+        public virtual void ОбъектИмеющийМгновеннуюУгловуюСкоростьВращаетсяВокругСобственнойОси()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Объект, имеющий мгновенную скорость, перемещается в пространсте", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Объект, имеющий мгновенную угловую скорость, вращается вокруг собственной оси", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -109,32 +109,29 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given("объект находится в точке (12, 5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+ testRunner.Given("объект имеет угол наклона (1, 8)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 5
- testRunner.And("объект имеет мгновенную скорость (-2, 4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+ testRunner.And("объект имеет мгновенную угловую скорость (2, 8)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 6
- testRunner.When("происходит прямолинейное равномерное движение без деформации", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+ testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 7
- testRunner.Then("объект перемещается в точку (10, 9)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+ testRunner.Then("объект получает угол наклона (3, 8)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Объект, положение в пространстве которого определить невозможно, невозможно перем" +
-            "естить")]
-        [Xunit.TraitAttribute("FeatureTitle", "Прямолинейное равномерное движение без деформации")]
-        [Xunit.TraitAttribute("Description", "Объект, положение в пространстве которого определить невозможно, невозможно перем" +
-            "естить")]
-        public virtual void ОбъектПоложениеВПространствеКоторогоОпределитьНевозможноНевозможноПереместить()
+        [Xunit.SkippableFactAttribute(DisplayName="Объект, угол наклона которого определить невозможно, невозможно вращать")]
+        [Xunit.TraitAttribute("FeatureTitle", "Вращение вокруг собственной оси")]
+        [Xunit.TraitAttribute("Description", "Объект, угол наклона которого определить невозможно, невозможно вращать")]
+        public virtual void ОбъектУголНаклонаКоторогоОпределитьНевозможноНевозможноВращать()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Объект, положение в пространстве которого определить невозможно, невозможно перем" +
-                    "естить", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Объект, угол наклона которого определить невозможно, невозможно вращать", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -156,20 +153,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 10
- testRunner.Given("объект, положение в пространстве которого, определить невозможно", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+ testRunner.Given("объект, угол наклона которого, определить невозможно", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 11
- testRunner.When("происходит прямолинейное равномерное движение без деформации", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+ testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 12
- testRunner.Then("операция прямолиенейного движения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+ testRunner.Then("операция вращения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Объект, который не имеет мгновенную скорость, невозможно переместить")]
-        [Xunit.TraitAttribute("FeatureTitle", "Прямолинейное равномерное движение без деформации")]
+        [Xunit.TraitAttribute("FeatureTitle", "Вращение вокруг собственной оси")]
         [Xunit.TraitAttribute("Description", "Объект, который не имеет мгновенную скорость, невозможно переместить")]
         public virtual void ОбъектКоторыйНеИмеетМгновеннуюСкоростьНевозможноПереместить()
         {
@@ -197,20 +194,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 15
- testRunner.Given("объект, который не имеет мгновенную скорость", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+ testRunner.Given("объект, который не имеет мгновенную угловую скорость", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 16
- testRunner.When("происходит прямолинейное равномерное движение без деформации", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+ testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 17
- testRunner.Then("операция прямолиенейного движения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+ testRunner.Then("операция вращения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Объект, положение в пространстве измнеить невозможно, невозможно переместить")]
-        [Xunit.TraitAttribute("FeatureTitle", "Прямолинейное равномерное движение без деформации")]
+        [Xunit.TraitAttribute("FeatureTitle", "Вращение вокруг собственной оси")]
         [Xunit.TraitAttribute("Description", "Объект, положение в пространстве измнеить невозможно, невозможно переместить")]
         public virtual void ОбъектПоложениеВПространствеИзмнеитьНевозможноНевозможноПереместить()
         {
@@ -238,19 +235,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 20
- testRunner.Given("объект находится в точке (12, 5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+ testRunner.Given("объект имеет угол наклона (1, 8)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 21
- testRunner.And("объект имеет мгновенную скорость (-2, 4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+ testRunner.And("объект имеет мгновенную угловую скорость (2, 8)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 22
- testRunner.And("объект, положение в пространстке которого изменить нельзя", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+ testRunner.And("объект, угол наклона которого изменить нельзя", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 23
- testRunner.When("происходит прямолинейное равномерное движение без деформации", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+ testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 24
- testRunner.Then("операция прямолиенейного движения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+ testRunner.Then("операция вращения прерывается выбросом исключения", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -263,12 +260,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature.FeatureSetup();
+                ВращениеВокругСобственнойОсиFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                ПрямолинейноеРавномерноеДвижениеБезДеформацииFeature.FeatureTearDown();
+                ВращениеВокругСобственнойОсиFeature.FeatureTearDown();
             }
         }
     }
