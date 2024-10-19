@@ -33,4 +33,10 @@
     <ProjectReference Include="..\game\game.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="core">
+      <HintPath>..\..\Common\core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
