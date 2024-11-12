@@ -3,7 +3,7 @@ using System;
 using System.Windows.Input;
 using TechTalk.SpecFlow;
 
-namespace AppServer.Commands
+namespace App.Commands
 {
     [Binding]
     public class КомандаКотораяОтправляетКомандуПотребителюКоманд_StepDefinitions

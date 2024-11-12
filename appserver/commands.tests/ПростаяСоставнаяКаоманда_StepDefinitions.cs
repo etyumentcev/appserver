@@ -3,7 +3,7 @@ using System;
 using System.Windows.Input;
 using TechTalk.SpecFlow;
 
-namespace AppServer.Commands.Tests
+namespace App.Commands.Tests
 {
     [Binding]
     public class ПростаяСоставнаяКаоманда_StepDefinitions

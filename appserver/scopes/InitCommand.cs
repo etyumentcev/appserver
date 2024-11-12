@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace AppServer.Scopes
+namespace App.Scopes
 {
     public class InitCommand : ICommand
     {

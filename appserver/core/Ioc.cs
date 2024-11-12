@@ -1,4 +1,4 @@
-﻿namespace AppServer
+﻿namespace App
 {
     /// <summary>
     /// Контейнер инверсии зависимотей (Расширяемая фабрика).
@@ -10,7 +10,7 @@
             {
                 if ("Update Ioc Resolve Dependency Strategy" == dependency)
                 {
-                    return new AppServer.Impl.UpdateIocResolveDependencyStrategyCommand(
+                    return new Impl.UpdateIocResolveDependencyStrategyCommand(
                       (Func<Func<string, object[], object>, Func<string, object[], object>>)args[0]
                     );
                 }

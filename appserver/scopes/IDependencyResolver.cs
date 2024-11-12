@@ -1,4 +1,4 @@
-﻿namespace AppServer.Scopes
+﻿namespace App.Scopes
 {
     public interface IDependencyResolver
     {

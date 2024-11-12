@@ -1,4 +1,4 @@
-﻿namespace AppServer.Commands
+﻿namespace App.Commands
 {
     public class SimpleMacroCommand : ICommand
     {

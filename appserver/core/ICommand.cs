@@ -1,4 +1,4 @@
-﻿namespace AppServer
+﻿namespace App
 {
     /// <summary>
     /// Команда.

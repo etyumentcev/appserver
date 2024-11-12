@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace AppServer.Commands
+namespace App.Commands
 {
     public class SoftStopCommand : ICommand
     {

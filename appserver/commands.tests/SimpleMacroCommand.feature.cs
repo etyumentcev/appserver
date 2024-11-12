@@ -40,10 +40,10 @@ namespace commands.tests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("ru-RU"), "", "Простая составная каоманда.", "Простая составная команда позволяет выполнить последовательность команд\r\nкак одну" +
-                    " команду. В случае выброса исклчения из любой команды последовательности\r\nвыполн" +
-                    "ение последовательности останавливается, а макрокоманда пробрасывает\r\nисключение" +
-                    " дальше.", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("ru-RU"), "", "Простая составная каоманда.", "Простая составная команда позволяет выполнить последовательность команд\nкак одну " +
+                    "команду. В случае выброса исклчения из любой команды последовательности\nвыполнен" +
+                    "ие последовательности останавливается, а макрокоманда пробрасывает\nисключение да" +
+                    "льше.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         

@@ -1,7 +1,7 @@
 using Moq;
 using System.Collections.Concurrent;
 
-namespace AppServer.Commands.Tests
+namespace App.Commands.Tests
 {
     public class ProcessorTests
     {
