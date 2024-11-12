@@ -1,4 +1,4 @@
-﻿namespace AppServer.Impl
+﻿namespace App.Impl
 {
     internal class UpdateIocResolveDependencyStrategyCommand : ICommand
     {
